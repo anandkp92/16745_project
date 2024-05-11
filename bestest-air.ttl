@@ -1,0 +1,69 @@
+@prefix bldg: <https://BESTESTAir.urn#> .
+@prefix boptestrules: <https://boptest-rules.urn#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix literal: <https://literal_values.urn#> .
+@prefix quantitykind: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix ref: <https://brickschema.org/schema/Brick/ref#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+bldg:fcu a brick:FCU ;
+    brick:feeds bldg:zon ;
+    brick:hasPart bldg:fcu_fan ;
+    brick:hasPoint bldg:fcu_oveFan_u,
+        bldg:fcu_reaPCoo_y,
+        bldg:fcu_reaPFan_y,
+        bldg:fcu_reaPHea_y .
+
+bldg:zon a brick:HVAC_Zone ;
+    brick:hasPoint bldg:con_oveTSetCoo_u,
+        bldg:con_oveTSetHea_u ,
+        bldg:zon_reaTRooAir_y .
+
+bldg:con_oveTSetCoo_u a brick:Zone_Air_Cooling_Temperature_Setpoint ;
+    qudt:hasQuantityKind quantitykind:Temperature ;
+    qudt:hasUnit qudt:K ;
+    rdfs:label "con_oveTSetCoo_u" .
+
+bldg:con_oveTSetHea_u a brick:Zone_Air_Heating_Temperature_Setpoint ;
+    qudt:hasQuantityKind quantitykind:Temperature ;
+    qudt:hasUnit qudt:K ;
+    rdfs:label "con_oveTSetHea_u" .
+
+bldg:fcu_oveFan_u a brick:Fan_Command ;
+    qudt:hasQuantityKind quantitykind:Temperature ;
+    qudt:hasUnit qudt:K ;
+    rdfs:label "fcu_oveFan_u" .
+
+bldg:fcu_reaPFan_y a brick:Electric_Power_Sensor ;
+    qudt:hasQuantityKind quantitykind:ElectricPower ;
+    qudt:hasUnit qudt:W ;
+    rdfs:label "fcu_reaPFan_y" .
+
+bldg:zon_weaSta_reaWeaTDryBul_y a brick:Outside_Air_Temperature_Sensor ;
+    qudt:hasQuantityKind quantitykind:Temperature ;
+    qudt:hasUnit qudt:K ;
+    rdfs:label "zon_weaSta_reaWeaTDryBul_y" .
+
+bldg:fcu_fan a brick:Supply_Fan .
+
+bldg:fcu_oveTSup_u a brick:Supply_Air_Temperature_Setpoint ;
+    qudt:hasQuantityKind quantitykind:Temperature ;
+    qudt:hasUnit qudt:K ;
+    rdfs:label "fcu_oveTSup_u" .
+
+bldg:fcu_reaPCoo_y a brick:Electric_Power_Sensor ;
+    qudt:hasQuantityKind quantitykind:ElectricPower ;
+    qudt:hasUnit qudt:W ;
+    rdfs:label "fcu_reaPCoo_y" .
+
+bldg:fcu_reaPHea_y a brick:Heating_Thermal_Power_Sensor ;
+    qudt:hasQuantityKind quantitykind:ElectricPower ;
+    qudt:hasUnit qudt:W ;
+    rdfs:label "fcu_reaPHea_y" .
+
+bldg:zon_reaTRooAir_y a brick:Zone_Air_Temperature_Sensor ;
+    qudt:hasQuantityKind quantitykind:Temperature ;
+    qudt:hasUnit qudt:K ;
+    rdfs:label "zon_reaTRooAir_y" .
